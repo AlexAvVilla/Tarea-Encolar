@@ -32,7 +32,7 @@ public class NodoController implements ActionListener {
         
         
         
-        this.VistaPrincipal.setExtendedState(frmPrincipal.MAXIMIZED_BOTH);
+        
         this.VistaPrincipal.setVisible(true);
         
     }
@@ -49,7 +49,6 @@ public class NodoController implements ActionListener {
         this.VistaNodos.btnApilar.addActionListener(this);
         this.VistaNodos.btnEncolar.addActionListener(this);
         //levantar el formulario vista nodos
-        this.VistaNodos.setLocationRelativeTo(null);
         this.VistaNodos.setVisible(true);
     }
     if(e.getSource()==this.VistaNodos.btnApilar)
@@ -57,7 +56,11 @@ public class NodoController implements ActionListener {
         this.nuevaLista.Apilar(Integer.parseInt(this.VistaNodos.txtDato.getText()));
         this.VistaNodos.txtLista.setText(this.nuevaLista.Listar());
     }
-    
+    if(e.getSource()==this.VistaNodos.btnEncolar)
+    {
+        this.nuevaLista.Encolar(Integer.parseInt(this.VistaNodos.txtDato.getText()));
+        this.VistaNodos.txtLista.setText(this.nuevaLista.Listar());
+    }
     }
     
 }

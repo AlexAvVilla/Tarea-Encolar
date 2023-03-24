@@ -14,7 +14,11 @@ import javax.swing.JOptionPane;
 public class Lista {
 Nodo primero;
 Nodo Auxiliar;
+Nodo cola;
+Nodo ultimo;
 String cadena = "";
+
+
 
 public void Apilar()
 {
@@ -42,11 +46,26 @@ public String Listar()
  while(Auxiliar != null)
  {
      
-     cadena = cadena  + Auxiliar.getDato()+" ";
+     cadena = cadena+"{ "  + Auxiliar.getDato()+" }";
      Auxiliar = Auxiliar.siguiente;
  }
  return cadena;
 }
+public String Encolar(int Dato){
+        Nodo nuevoNodo = new Nodo(Dato);
+        if(ultimo == null){
+            primero = nuevoNodo;
+        }
+        else{
+            ultimo.siguiente = nuevoNodo;
+        }
+        ultimo = nuevoNodo;
+        
+        cadena = cadena + nuevoNodo.getDato();
+        
+           
+        return cadena;
+    }
 
 
 }
